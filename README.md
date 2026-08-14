@@ -9,7 +9,7 @@ A rotating globe of where our class comes from. Every pin on the map is a studen
 1. **Clone the repo and create a branch**
    ```
    git clone <repo-url>
-   cd git-handson-session
+   cd Git-HandsOn
    git switch -c feature/your-name
    ```
 
