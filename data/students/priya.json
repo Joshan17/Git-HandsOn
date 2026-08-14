@@ -1,0 +1,11 @@
+{
+  "id": "priya",
+  "name": "Priya",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "lat": 18.52,
+  "lng": 73.86,
+  "interests": ["Robotics", "Startups"],
+  "quote": "Ship it, then improve it.",
+  "github": "priya-dev"
+}

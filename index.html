@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Git Handson Session</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/>
+        </svg>
+      </span>
+      Git Handson Session
+    </a>
+
+    <div class="search-box">
+      <svg class="icon search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input id="search-input" type="text" placeholder="Find a classmate…" autocomplete="off" />
+      <div class="search-results" id="search-results"></div>
+    </div>
+  </header>
+
+  <div class="app-layout" id="app-layout">
+    <section class="globe-pane">
+      <div id="globe-container"></div>
+
+      <div class="stats-strip">
+        <div class="stat-pill"><strong id="stat-students">–</strong><span>students</span></div>
+        <div class="stat-pill"><strong id="stat-states">–</strong><span>states</span></div>
+        <div class="stat-pill"><strong id="stat-cities">–</strong><span>cities</span></div>
+      </div>
+
+      <p class="globe-hint">Drag to explore · click a pin to meet them</p>
+      <p class="small-screen-note">Best viewed on a larger screen</p>
+    </section>
+
+    <aside class="profile-pane">
+      <div class="profile-card">
+        <button class="back-link" id="back-button">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+          </svg>
+          Back to globe
+        </button>
+
+        <div class="profile-avatar" id="profile-avatar"></div>
+        <h1 class="profile-name" id="profile-name">…</h1>
+        <p class="profile-location" id="profile-location">…</p>
+        <p class="profile-quote" id="profile-quote"></p>
+
+        <div class="profile-section" id="interests-section">
+          <h3>Interests</h3>
+          <ul id="profile-interests"></ul>
+        </div>
+
+        <a class="profile-github" id="profile-github" href="#" target="_blank" rel="noopener"></a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- globe.gl bundles Three.js and exposes a single global: Globe() -->
+  <script src="https://unpkg.com/globe.gl@2/dist/globe.gl.min.js"></script>
+
+  <script src="js/load-students.js"></script>
+  <script src="js/ui-helpers.js"></script>
+  <script src="js/globe.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/profile-panel.js"></script>
+
+  <script>
+    // Wires the modules above together. Nothing here needs to change when
+    // a student adds their own data file.
+    loadStudents().then((students) => {
+      initGlobe(students);
+      initSearch(students);
+    });
+  </script>
+</body>
+</html>

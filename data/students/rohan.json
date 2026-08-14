@@ -1,0 +1,11 @@
+{
+  "id": "rohan",
+  "name": "Rohan",
+  "state": "Delhi",
+  "city": "New Delhi",
+  "lat": 28.61,
+  "lng": 77.21,
+  "interests": ["Public Policy", "Debate", "History"],
+  "quote": "Ask better questions.",
+  "github": "rohan-k"
+}

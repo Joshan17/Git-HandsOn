@@ -1,0 +1,11 @@
+{
+  "id": "upendra",
+  "name": "Upendra",
+  "state": "Andhra Pradesh",
+  "city": "Tirupati",
+  "lat": 13.63,
+  "lng": 79.42,
+  "interests": ["AI", "HCI", "Software Engineering"],
+  "quote": "Build things that matter.",
+  "github": "upendra"
+}

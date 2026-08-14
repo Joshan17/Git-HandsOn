@@ -1,0 +1,11 @@
+{
+  "id": "karan",
+  "name": "Karan",
+  "state": "Punjab",
+  "city": "Amritsar",
+  "lat": 31.63,
+  "lng": 74.87,
+  "interests": ["Electronics", "Cricket"],
+  "quote": "Current flows where curiosity leads.",
+  "github": "karan-s"
+}

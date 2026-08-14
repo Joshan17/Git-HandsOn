@@ -1,0 +1,535 @@
+/* Git Handson Session — design tokens & shared styles */
+
+:root {
+  --color-bg: #050505;
+  --color-surface: #0e0e0e;
+  --color-surface-raised: #161616;
+  --color-ink: #dddbcb;
+  --color-ink-soft: #9a988c;
+  --color-line: rgba(221, 219, 203, 0.12);
+
+  --color-accent: #008080;
+  --color-accent-bright: #14b8b8;
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 32px rgba(0, 0, 0, 0.4);
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  --font-display: "Orbitron", "Space Grotesk", -apple-system, sans-serif;
+  --font-ui: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-ui);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+  margin: 0 0 0.4em;
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: inherit;
+}
+
+/* Top bar */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--color-line);
+  flex-shrink: 0;
+  z-index: 20;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.brand-mark {
+  display: inline-flex;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.brand-mark .icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Search */
+
+.search-box {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+}
+
+.search-box .search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: var(--color-ink-soft);
+  pointer-events: none;
+}
+
+.search-box input {
+  width: 100%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  padding: 10px 16px 10px 40px;
+  color: var(--color-ink);
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.search-box input::placeholder {
+  color: var(--color-ink-soft);
+}
+
+.search-box input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.18);
+}
+
+.search-results {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  max-height: 320px;
+  overflow-y: auto;
+  display: none;
+  z-index: 30;
+}
+
+.search-results.open {
+  display: block;
+}
+
+.search-result {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.search-result:last-child {
+  border-bottom: none;
+}
+
+.search-result:hover,
+.search-result.active {
+  background: rgba(0, 128, 128, 0.12);
+}
+
+.search-result-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.06);
+  background: color-mix(in srgb, var(--avatar-color) 18%, transparent);
+  border: 1px solid var(--avatar-color);
+  color: var(--avatar-color);
+}
+
+.search-result-avatar .avatar-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.search-result-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.search-result-name {
+  color: var(--color-ink);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.search-result-place {
+  color: var(--color-ink-soft);
+  font-size: 0.78rem;
+}
+
+.search-empty {
+  padding: 12px 14px;
+  color: var(--color-ink-soft);
+  font-size: 0.85rem;
+}
+
+/* Layout: globe pane + profile pane */
+
+.app-layout {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
+
+.globe-pane,
+.profile-pane {
+  transition: flex-basis 0.45s ease-out;
+}
+
+.globe-pane {
+  position: relative;
+  flex: 1 1 100%;
+  min-width: 0;
+  background: radial-gradient(ellipse at 50% 40%, #0d1414 0%, var(--color-bg) 70%);
+}
+
+#globe-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  cursor: grab;
+}
+
+#globe-container:active {
+  cursor: grabbing;
+}
+
+.profile-pane {
+  flex: 0 0 0%;
+  min-width: 0;
+  width: 0;
+  overflow: hidden;
+  display: flex;
+  padding: 0;
+}
+
+.app-layout.profile-open .globe-pane {
+  flex-basis: 58%;
+}
+
+.app-layout.profile-open .profile-pane {
+  flex-basis: 42%;
+  width: auto;
+  /* Padding lives here, not on the base rule — a border-box element can
+     never render narrower than its own padding, so it has to be absent
+     while the pane is collapsed or it leaves a permanent sliver. */
+  padding: 24px;
+}
+
+/* Overlays on the globe pane */
+
+.stats-strip {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.stat-pill {
+  background: rgba(14, 14, 14, 0.75);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.stat-pill strong {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--color-accent-bright);
+}
+
+.stat-pill span {
+  color: var(--color-ink-soft);
+  font-size: 0.8rem;
+}
+
+.globe-hint {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-ink-soft);
+  font-size: 0.8rem;
+  z-index: 10;
+  pointer-events: none;
+  text-align: center;
+}
+
+/* globe.gl point tooltip (raw HTML injected by the library) */
+
+.globe-tooltip {
+  background: var(--color-surface-raised);
+  border: 1px solid rgba(0, 128, 128, 0.4);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  box-shadow: var(--shadow-card);
+  font-family: var(--font-ui);
+}
+
+.globe-tooltip strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--color-ink);
+}
+
+.globe-tooltip span {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--color-accent-bright);
+  margin-top: 2px;
+}
+
+/* Profile panel — a floating card inside .profile-pane */
+
+.profile-card {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 28px 28px 40px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: var(--color-ink-soft);
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 24px;
+}
+
+.back-link:hover {
+  color: var(--color-accent-bright);
+}
+
+.profile-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  background: color-mix(in srgb, var(--avatar-color) 18%, transparent);
+  border: 1px solid var(--avatar-color);
+  color: var(--avatar-color);
+}
+
+.profile-avatar .avatar-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.profile-name {
+  font-size: 1.7rem;
+}
+
+.profile-location {
+  color: var(--color-ink-soft);
+  margin: 0 0 20px;
+}
+
+.profile-quote {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--color-accent-bright);
+  margin: 0 0 24px;
+}
+
+.profile-section {
+  border-top: 1px solid var(--color-line);
+  padding-top: 18px;
+  margin-top: 18px;
+}
+
+.profile-section h3 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-ink-soft);
+  font-family: var(--font-ui);
+}
+
+.profile-section ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.profile-section li {
+  background: var(--color-bg);
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  color: var(--color-ink);
+}
+
+.profile-github {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 20px;
+  color: var(--color-accent-bright);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.inline-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+}
+
+.profile-github:hover {
+  text-decoration: underline;
+}
+
+/* Small-screen note */
+
+.small-screen-note {
+  display: none;
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 0.78rem;
+  color: var(--color-ink-soft);
+  z-index: 10;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .app-layout.profile-open .globe-pane {
+    flex-basis: 0%;
+    width: 0;
+  }
+
+  .app-layout.profile-open .profile-pane {
+    flex-basis: 100%;
+    width: auto;
+  }
+
+  /* The globe pane collapses to zero width above, but its overlays are
+     position:absolute so they don't shrink away with it — hide them
+     explicitly or they float on top of the profile card. */
+  .app-layout.profile-open .stats-strip,
+  .app-layout.profile-open .globe-hint,
+  .app-layout.profile-open .small-screen-note {
+    display: none;
+  }
+
+  .stats-strip {
+    flex-wrap: wrap;
+    max-width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    flex-wrap: wrap;
+  }
+
+  /* Both sit at the same bottom-center spot — don't show both at once. */
+  .globe-hint {
+    display: none;
+  }
+
+  .small-screen-note {
+    display: block;
+  }
+
+  .app-layout.profile-open .profile-pane {
+    padding: 14px;
+  }
+
+  .profile-card {
+    padding: 22px 18px 32px;
+  }
+}

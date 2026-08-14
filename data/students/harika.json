@@ -1,0 +1,11 @@
+{
+  "id": "harika",
+  "name": "Harika",
+  "state": "Telangana",
+  "city": "Hyderabad",
+  "lat": 17.38,
+  "lng": 78.49,
+  "interests": ["Design", "Product", "Photography"],
+  "quote": "Good design is invisible until it's gone.",
+  "github": "harika"
+}

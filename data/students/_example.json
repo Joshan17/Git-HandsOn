@@ -1,0 +1,11 @@
+{
+  "id": "jane-doe",
+  "name": "Jane Doe",
+  "state": "Karnataka",
+  "city": "Bengaluru",
+  "lat": 12.97,
+  "lng": 77.59,
+  "interests": ["Robotics", "Music", "Open Source"],
+  "quote": "Every map starts with one pin.",
+  "github": "janedoe"
+}

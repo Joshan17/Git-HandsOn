@@ -1,0 +1,11 @@
+{
+  "_comment": "One-line description per state, shown as the subtitle on state.html. Everyone edits this same file, so two people touching the same state in one class session is a great excuse to practice resolving a merge conflict. Keep entries to one short line each.",
+
+  "Andhra Pradesh": "Temple towns, tech parks, and the Eastern Ghats.",
+  "Telangana": "Hyderabad's biryani, pearls, and a booming IT skyline.",
+  "Maharashtra": "From the Sahyadris to the Arabian Sea, home of Bollywood and business.",
+  "Delhi": "The capital — layers of empires under one skyline.",
+  "West Bengal": "Rivers, revolutionaries, and rosogolla.",
+  "Punjab": "Golden fields, a golden temple, and warm hearts.",
+  "Karnataka": "Silicon plateaus meeting the Western Ghats."
+}

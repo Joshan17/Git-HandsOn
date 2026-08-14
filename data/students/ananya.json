@@ -1,0 +1,11 @@
+{
+  "id": "ananya",
+  "name": "Ananya",
+  "state": "West Bengal",
+  "city": "Kolkata",
+  "lat": 22.57,
+  "lng": 88.36,
+  "interests": ["Literature", "Theatre", "Film"],
+  "quote": "Stories are how we remember.",
+  "github": "ananya-b"
+}

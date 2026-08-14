@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"c:/Users/upend/OneDrive/Desktop/CampusAtlas/css\" \"c:/Users/upend/OneDrive/Desktop/CampusAtlas/js\" \"c:/Users/upend/OneDrive/Desktop/CampusAtlas/data/students\")",
+      "Bash(curl -s --max-time 10 \"https://api.github.com/repos/geohacker/india/git/trees/master?recursive=1\")",
+      "Bash(python -c ' *)",
+      "Bash(curl -s -o /dev/null -w \"Orbitron+SpaceGrotesk: %{http_code}\\\\n\" --max-time 10 \"https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap\")"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\upend\\OneDrive\\Desktop\\CampusAtlas"
+    ]
+  }
+}
