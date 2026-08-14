@@ -2,7 +2,7 @@
 
 A rotating globe of where our class comes from. Every pin on the map is a student.
 
-🔗 **Live site:** [add your deployed link here]
+🔗 **Live site:** https://upendra2003.github.io/Git-HandsOn/
 
 ## Add Your Profile
 
